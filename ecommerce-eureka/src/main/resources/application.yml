@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: ecommerce-eureka
+  profiles:
+    active: ${SPRING_PROFILE:local}
+server:
+  port: ${EUREKA_PORT:8282}
+  servlet:
+    context-path: /eureka
+eureka:
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
