@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ecommerce-config-server
+    name: configserver
   security:
     user:
       name: cmw
@@ -15,3 +15,14 @@ spring:
           searchPaths: '{application}'
           force-pull: true
           clone-on-start: true
+server:
+  port: 0
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8282/eureka}
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}

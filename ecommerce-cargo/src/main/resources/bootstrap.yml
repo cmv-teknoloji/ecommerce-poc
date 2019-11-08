@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ecommerce-kafka-producer
+    name: ecommerce-cargo
   profiles:
     active: ${SPRING_PROFILE:local}
   cloud:

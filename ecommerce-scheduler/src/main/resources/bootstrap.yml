@@ -1,6 +1,15 @@
 spring:
   application:
     name: ecommerce-scheduler
+  profiles:
+    active: ${SPRING_PROFILE:local}
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      fail-fast: true
+      password: pocEcomCMW
+      username: cmw
 server:
   port: 0
 eureka:
