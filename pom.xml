@@ -19,8 +19,9 @@
 		<module>ecommerce-common</module>
 		<module>ecommerce-core</module>
 		<module>ecommerce-ui</module>
-		<module>ecommerce-schedule</module>
+		<module>ecommerce-scheduler</module>
 		<module>ecommerce-cargo</module>
+		<module>ecommerce-kafka-producer</module>
 	</modules>
 
 	<properties>

@@ -1,4 +1,4 @@
-package com.cmv.technology.ecommerce.cargo;
+package com.cmv.technology.ecommerce.ui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class CargoIntegrationApplication {
+public class EcommerceUIApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CargoIntegrationApplication.class, args);
+		SpringApplication.run(EcommerceUIApplication.class, args);
 	}
 
 }

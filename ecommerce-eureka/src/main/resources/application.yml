@@ -5,11 +5,11 @@ spring:
     active: ${SPRING_PROFILE:local}
 server:
   port: ${EUREKA_PORT:8282}
-  servlet:
-    context-path: /eureka
 eureka:
   instance:
     hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+    metadataMap:
+      instanceId: ${spring.application.name}:${server.port}
   client:
     registerWithEureka: false
     fetchRegistry: false
