@@ -41,7 +41,7 @@ public class OrderCargoStatusService {
                 orderCargoStatus.setOrder(order);
             });
 
-            orderCargoStatus.setOrderId(orderCargoStatusDto.getOrderId());
+            orderCargoStatus.setCargoKey(orderCargoStatusDto.getOrderId());
             orderCargoStatus.setStatus(orderCargoStatusDto.getStatus());
             orderCargoStatusRepository.save(orderCargoStatus);
         }

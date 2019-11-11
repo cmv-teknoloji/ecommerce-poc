@@ -1,3 +1,14 @@
 spring:
   application:
     name: ecommerce-cargo
+yurtici:
+  cargo:
+    create:
+      wsdl: 'http://webservices.yurticikargo.com:8080/KOPSWebServices/ShippingOrderDispatcherServices?WSDL'
+      user: TURKCELL
+      password: 12345
+    query:
+      wsdl: 'http://testwebservices.yurticikargo.com:9090/KOPSWebServices/WsReportWithReferenceServices?WSDL'
+      user: TURKCELL
+      password: 12345
+

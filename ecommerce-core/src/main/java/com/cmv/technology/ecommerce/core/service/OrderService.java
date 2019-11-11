@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -36,6 +37,7 @@ public class OrderService extends BaseService {
 
     public void saveOrder(OrderDto dto) {
         ResponseEntity<Boolean> shipmentCreated = restTemplate.postForEntity(getUri("/shipment"), dto, Boolean.class);
+        dto.setCargoCreateDate(new Date());
         orderRepository.save(OrderMapper.mapTo(dto));
     }
 

@@ -5,6 +5,7 @@ import com.cmv.technology.ecommerce.core.controller.interfaces.IOrderController;
 import com.cmv.technology.ecommerce.core.mapper.OrderMapper;
 import com.cmv.technology.ecommerce.core.service.OrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class OrderController implements IOrderController {
     }
 
     @Override
-    public void saveOrder(OrderDto orderDto) {
+    public void saveOrder(@RequestBody OrderDto orderDto) {
         orderService.saveOrder(orderDto);
     }
 
