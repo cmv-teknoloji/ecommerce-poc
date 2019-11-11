@@ -17,8 +17,12 @@ public class OrderService{
 
     private final OrderRepository orderRepository;
 
-    public List<OrderDto> findAll(){
-        return OrderMapper.mapTo(orderRepository.findAll());
+    public List<Order> findAll(Boolean cargoCompleted){
+        if(cargoCompleted == null){
+            return orderRepository.findAll();
+        }else{
+            return orderRepository.findByCargoCompleted(cargoCompleted);
+        }
     }
 
     public void saveOrder(OrderDto dto){
