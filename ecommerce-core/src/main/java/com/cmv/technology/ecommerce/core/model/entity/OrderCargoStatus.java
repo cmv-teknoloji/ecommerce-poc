@@ -17,6 +17,8 @@ public class OrderCargoStatus {
     @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
 
+    private String orderId;
+
     private String cargoFirm;
 
     private String status;

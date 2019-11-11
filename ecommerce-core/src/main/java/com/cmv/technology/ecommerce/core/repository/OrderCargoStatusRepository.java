@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface OrderCargoStatusRepository extends JpaRepository<OrderCargoStatus, Long> {
@@ -15,5 +16,10 @@ public interface OrderCargoStatusRepository extends JpaRepository<OrderCargoStat
             "join fetch s.order " +
             "where s.order.id=:orderId")
     List<OrderCargoStatus> findByOrderId(@Param("orderId") Long orderId);
+
+    @Query("select distinct s from OrderCargoStatus s " +
+            "join fetch s.order " +
+            "where s.order.id=:orderId and s.status=:status")
+    Optional<OrderCargoStatus> findByOrderIdAndStatus(@Param("orderId") Long orderId, @Param("status") String status);
 
 }

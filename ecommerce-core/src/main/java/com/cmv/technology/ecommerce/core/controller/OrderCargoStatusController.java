@@ -18,4 +18,10 @@ public class OrderCargoStatusController implements IOrderCargoStatusController {
     public List<OrderCargoStatusDto> findByOrderId(Long orderId) {
         return orderCargoStatusService.getByOrderId(orderId);
     }
+
+    @Override
+    public void updateStatus(List<OrderCargoStatusDto> orderCargoStatusDtos) {
+        orderCargoStatusService.updateStatus(orderCargoStatusDtos);
+    }
+
 }

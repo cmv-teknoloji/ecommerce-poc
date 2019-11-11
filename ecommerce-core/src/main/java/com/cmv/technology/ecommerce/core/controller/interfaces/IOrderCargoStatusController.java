@@ -1,7 +1,6 @@
 package com.cmv.technology.ecommerce.core.controller.interfaces;
 
 import com.cmv.technology.ecommerce.common.dto.cargo.OrderCargoStatusDto;
-import com.cmv.technology.ecommerce.common.dto.cargo.OrderDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,5 +14,7 @@ public interface IOrderCargoStatusController {
     @RequestMapping(method = RequestMethod.GET, value = "/orderCargoStatus")
     List<OrderCargoStatusDto> findByOrderId(@RequestParam("orderId") Long orderId);
 
+    @RequestMapping(method = RequestMethod.POST, value = "/orderCargoStatus/updateStatu")
+    void updateStatus(List<OrderCargoStatusDto> orderDto);
 
 }

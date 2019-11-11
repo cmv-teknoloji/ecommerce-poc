@@ -23,7 +23,7 @@ public class StatuTrackService extends BaseService {
         ResponseEntity<OrderDto[]> responseEntity = restTemplate.getForEntity(getCoreUri("/order?cargoCompleted=false"), OrderDto[].class);
         OrderDto[] notCompletedOrders = responseEntity.getBody();
         ResponseEntity<OrderCargoStatusDto[]> newStatus = restTemplate.postForEntity(getCargoUri("/shipment/query"), notCompletedOrders, OrderCargoStatusDto[].class);
-         restTemplate.postForEntity(getCoreUri("/order/updateStatu"), newStatus, Object.class);
+         restTemplate.postForEntity(getCoreUri("/orderCargoStatus/updateStatu"), newStatus, Object.class);
 
     }
 
