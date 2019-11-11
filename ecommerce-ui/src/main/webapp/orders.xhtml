@@ -1,0 +1,88 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="head">
+        <style type="text/css">
+        </style>
+    </ui:define>
+
+    <ui:define name="title">Orders</ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <div class="ui-g">
+                <div class="ui-g-12">
+                    <div class="card card-w-title">
+
+                        <h1>Orders</h1>
+                        <p:commandButton value="Fetch Orders"
+                                         action="#{orderController.getAllOrders()}" update="tbOrder"
+                                         onclick="start()" oncomplete="stop()"/>
+                        <p:dataTable id="tbOrder" paginator="true" rows="10"
+                                     value="#{orderController.orders}" var="order" style="margin-top: 10px;">
+                            <f:facet name="header" style="text-align: left;">
+                            </f:facet>
+                            <p:column headerText="Order Id">
+                                <h:outputText value="#{order.cargoOrderId}"/>
+                            </p:column>
+                            <p:column headerText="Cargo Firm">
+                                <h:outputText value="#{order.cargoFirm}"/>
+                            </p:column>
+                            <p:column headerText="Cargo Last Status">
+                                <p:commandButton icon="fa fa-fw fa-bars" style="padding:4px;"
+                                                 action="#{orderController.showCargoStatusHistory(order)}"
+                                                 onclick="start()" oncomplete="PF('dlgStatuses').show();stop();"
+                                                 update=":form:dlgStatuses"/>
+                                <h:outputText value="#{order.cargoLastStatus}"/>
+                            </p:column>
+                            <p:column headerText="Cargo Last Status Date">
+                                <h:outputText value="#{order.cargoLastStatusDate}">
+                                    <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="Options">
+                                <h:outputLink value="#{order.cargoTrackingUrl}" rendered="#{order.cargoCreateDate != null}"
+                                              target="_blank" style="text-decoration: underline">
+                                    Tracking Link
+                                </h:outputLink>
+                                <br/><br/>
+                                <p:commandButton disabled="#{order.cargoCompleted or order.cargoLastStatus != null}"
+                                                 value="Send" action="#{orderController.sendToCargo(order)}"
+                                                 update=":form" onclick="start()" oncomplete="stop()"/>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+            </div>
+            <p:dialog id="dlgStatuses" header="Order Cargo Status History" widgetVar="dlgStatuses" modal="true">
+                <p:dataTable id="tbStatuses" paginator="true" rows="10" rowIndexVar="rowIndex"
+                             value="#{orderController.cargoStatuses}" var="status" style="width: 600px;">
+                    <f:facet name="header" style="text-align: left;">
+                    </f:facet>
+                    <p:column headerText="#" style="width:5%">
+                        #{rowIndex+1}
+                    </p:column>
+                    <p:column headerText="Cargo Firm">
+                        <h:outputText value="#{status.cargoFirm}"/>
+                    </p:column>
+                    <p:column headerText="Order Id">
+                        <h:outputText value="#{status.order.cargoOrderId}"/>
+                    </p:column>
+                    <p:column headerText="Date">
+                        <h:outputText value="#{status.statusChangeDate}">
+                            <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss"/>
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Status">
+                        <h:outputText value="#{status.status}"/>
+                    </p:column>
+                </p:dataTable>
+            </p:dialog>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

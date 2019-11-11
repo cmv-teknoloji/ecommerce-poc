@@ -19,5 +19,7 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8282/eureka}
   instance:
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
     preferIpAddress: true
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}

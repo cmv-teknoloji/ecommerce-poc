@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pa="http://primefaces.org/atlantis">
+
+    <div
+            class="layout-sidebar #{guestPreferences.darkMenu ? 'layout-sidebar-dark': ''}">
+        <pa:tabMenu>
+            <pa:tab icon="fa fa-cube" title="E-Commerce">
+                <pa:menu widgetVar="me">
+
+                    <p:submenu id="um_siparis" label="Orders"
+                               icon="fa fa-fw fa-reorder">
+                        <p:menuitem value="Orders" icon="fa fa-fw fa-reorder"
+                                    outcome="/orders"/>
+                    </p:submenu>
+
+                </pa:menu>
+            </pa:tab>
+            <ui:remove>
+            </ui:remove>
+        </pa:tabMenu>
+
+    </div>
+
+</ui:composition>
