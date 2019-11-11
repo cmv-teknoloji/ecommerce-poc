@@ -3,19 +3,17 @@ package com.cmv.technology.ecommerce.core.model.entity;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "oorder")
 @Data
-public class Order {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+@EqualsAndHashCode(callSuper = true)
+public class Order extends BaseEntity {
 
     @Transient
     @JsonSerialize
@@ -24,7 +22,7 @@ public class Order {
 
     private String cargoFirm;
 
-    private Date cargoCreateDate;
+    private LocalDateTime cargoCreateDate;
 
     private String cargoTrackingUrl;
 
@@ -32,7 +30,7 @@ public class Order {
 
     private Boolean cargoCompleted = false;
 
-    private Date cargoLastStatusDate;
+    private LocalDateTime cargoLastStatusDate;
 
     public String getCargoOrderId() {
         return "TCELL" + getId();

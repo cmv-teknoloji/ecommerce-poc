@@ -1,5 +1,6 @@
 package com.cmv.technology.ecommerce.common.dto.cargo;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class OrderDto {
@@ -10,7 +11,7 @@ public class OrderDto {
 
     private String cargoFirm;
 
-    private Date cargoCreateDate;
+    private LocalDateTime cargoCreateDate;
 
     private String cargoTrackingUrl;
 
@@ -44,11 +45,11 @@ public class OrderDto {
         this.cargoFirm = cargoFirm;
     }
 
-    public Date getCargoCreateDate() {
+    public LocalDateTime getCargoCreateDate() {
         return cargoCreateDate;
     }
 
-    public void setCargoCreateDate(Date cargoCreateDate) {
+    public void setCargoCreateDate(LocalDateTime cargoCreateDate) {
         this.cargoCreateDate = cargoCreateDate;
     }
 

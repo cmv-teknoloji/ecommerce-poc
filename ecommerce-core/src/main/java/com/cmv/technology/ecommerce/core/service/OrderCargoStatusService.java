@@ -16,9 +16,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class OrderCargoStatusService {
 
-    private OrderCargoStatusRepository orderCargoStatusRepository;
+    private final OrderCargoStatusRepository orderCargoStatusRepository;
 
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     public List<OrderCargoStatusDto> getByOrderId(Long orderId) {
         return OrderCargoStatusMapper.mapTo(orderCargoStatusRepository.findByOrderId(orderId));

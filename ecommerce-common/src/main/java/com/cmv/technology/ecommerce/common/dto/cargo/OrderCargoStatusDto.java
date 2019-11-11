@@ -1,6 +1,6 @@
 package com.cmv.technology.ecommerce.common.dto.cargo;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class OrderCargoStatusDto {
 
@@ -14,7 +14,7 @@ public class OrderCargoStatusDto {
 
     private String status;
 
-    private Date statusChangeDate;
+    private LocalDateTime statusChangeDate;
 
     public Long getId() {
         return id;
@@ -56,11 +56,11 @@ public class OrderCargoStatusDto {
         this.status = status;
     }
 
-    public Date getStatusChangeDate() {
+    public LocalDateTime getStatusChangeDate() {
         return statusChangeDate;
     }
 
-    public void setStatusChangeDate(Date statusChangeDate) {
+    public void setStatusChangeDate(LocalDateTime statusChangeDate) {
         this.statusChangeDate = statusChangeDate;
     }
 

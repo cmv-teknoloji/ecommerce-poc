@@ -1,18 +1,17 @@
 package com.cmv.technology.ecommerce.core.model.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @Table
 @Data
-public class OrderCargoStatus {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+@EqualsAndHashCode(callSuper = true)
+public class OrderCargoStatus extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
@@ -23,6 +22,6 @@ public class OrderCargoStatus {
 
     private String status;
 
-    private Date statusChangeDate;
+    private LocalDateTime statusChangeDate;
 
 }
