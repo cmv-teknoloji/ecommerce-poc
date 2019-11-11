@@ -20,11 +20,28 @@ public class OrderMapper {
         OrderDto orderDto = new OrderDto();
         orderDto.setCargoCompleted(order.getCargoCompleted());
         orderDto.setCargoCreateDate(order.getCargoCreateDate());
-        orderDto.setCargoFirm(orderDto.getCargoFirm());
-        orderDto.setCargoLastStatus(orderDto.getCargoLastStatus());
-        orderDto.setCargoOrderId(orderDto.getCargoOrderId());
-        orderDto.setId(orderDto.getId());
-        orderDto.setCargoTrackingUrl(orderDto.getCargoTrackingUrl());
+        orderDto.setCargoFirm(order.getCargoFirm());
+        orderDto.setCargoLastStatus(order.getCargoLastStatus());
+        orderDto.setCargoOrderId(order.getCargoOrderId());
+        orderDto.setId(order.getId());
+        orderDto.setCargoTrackingUrl(order.getCargoTrackingUrl());
         return orderDto;
+    }
+
+
+
+    public static Order mapTo(OrderDto orderDto) {
+        if (orderDto == null) {
+            return null;
+        }
+        Order order = new Order();
+        order.setCargoCompleted(orderDto.getCargoCompleted());
+        order.setCargoCreateDate(orderDto.getCargoCreateDate());
+        order.setCargoFirm(orderDto.getCargoFirm());
+        order.setCargoLastStatus(orderDto.getCargoLastStatus());
+        order.setCargoOrderId(orderDto.getCargoOrderId());
+        order.setId(orderDto.getId());
+        order.setCargoTrackingUrl(orderDto.getCargoTrackingUrl());
+        return order;
     }
 }

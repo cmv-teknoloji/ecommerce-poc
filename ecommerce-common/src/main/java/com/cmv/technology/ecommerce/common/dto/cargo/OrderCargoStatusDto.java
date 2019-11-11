@@ -53,4 +53,15 @@ public class OrderCargoStatusDto {
     public void setStatusChangeDate(Date statusChangeDate) {
         this.statusChangeDate = statusChangeDate;
     }
+
+    @Override
+    public String toString() {
+        return "OrderCargoStatusDto{" +
+                "id=" + id +
+                ", order=" + order +
+                ", cargoFirm='" + cargoFirm + '\'' +
+                ", status='" + status + '\'' +
+                ", statusChangeDate=" + statusChangeDate +
+                '}';
+    }
 }

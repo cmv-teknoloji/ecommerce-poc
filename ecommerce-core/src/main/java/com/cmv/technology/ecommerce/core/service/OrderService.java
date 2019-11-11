@@ -21,4 +21,8 @@ public class OrderService{
         return OrderMapper.mapTo(orderRepository.findAll());
     }
 
+    public void saveOrder(OrderDto dto){
+        orderRepository.save(OrderMapper.mapTo(dto));
+    }
+
 }

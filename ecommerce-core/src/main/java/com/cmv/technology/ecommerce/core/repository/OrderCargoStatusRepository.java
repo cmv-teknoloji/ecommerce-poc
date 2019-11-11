@@ -1,6 +1,5 @@
 package com.cmv.technology.ecommerce.core.repository;
 
-import com.cmv.technology.ecommerce.core.model.entity.Order;
 import com.cmv.technology.ecommerce.core.model.entity.OrderCargoStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +13,7 @@ public interface OrderCargoStatusRepository extends JpaRepository<OrderCargoStat
 
     @Query("select s from OrderCargoStatus s " +
             "join fetch s.order " +
-            "where s.order=:order")
-    public List<OrderCargoStatus> findByOrder(@Param("order") Order order);
+            "where s.order.id=:orderId")
+    List<OrderCargoStatus> findByOrderId(@Param("orderId") Long orderId);
 
 }

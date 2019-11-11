@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 public class OrderCargoStatusMapper {
 
-
     public static List<OrderCargoStatusDto> mapTo(List<OrderCargoStatus> orderCargoStatusList) {
         return orderCargoStatusList.stream().map(OrderCargoStatusMapper::mapTo).collect(Collectors.toList());
     }

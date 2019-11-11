@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @FeignClient("order")
-@RequestMapping("order")
 public interface IOrderController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/order")
     List<OrderDto> findAll();
+
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/order")
+    void saveOrder(OrderDto orderDto);
 }

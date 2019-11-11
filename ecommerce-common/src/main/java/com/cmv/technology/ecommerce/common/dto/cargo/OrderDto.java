@@ -83,4 +83,18 @@ public class OrderDto {
     public void setCargoLastStatusDate(Date cargoLastStatusDate) {
         this.cargoLastStatusDate = cargoLastStatusDate;
     }
+
+    @Override
+    public String toString() {
+        return "OrderDto{" +
+                "id=" + id +
+                ", cargoOrderId='" + cargoOrderId + '\'' +
+                ", cargoFirm='" + cargoFirm + '\'' +
+                ", cargoCreateDate=" + cargoCreateDate +
+                ", cargoTrackingUrl='" + cargoTrackingUrl + '\'' +
+                ", cargoLastStatus='" + cargoLastStatus + '\'' +
+                ", cargoCompleted=" + cargoCompleted +
+                ", cargoLastStatusDate=" + cargoLastStatusDate +
+                '}';
+    }
 }
